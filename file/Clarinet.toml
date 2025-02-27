@@ -13,4 +13,4 @@ depends_on = ["kyc-registry"]
 
 [contracts.kyc-verifier]
 path = "contracts/kyc-verifier.clar"
-depends_on = ["kyc-registry"]
+depends_on = ["kyc-registry", "kyc-user"]

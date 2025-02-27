@@ -25,6 +25,50 @@ The system consists of three main smart contracts:
 - **Development Environment**: Clarinet
 - **Testing Framework**: Clarinet's built-in testing tools
 
+## Security Features
+
+### Access Control
+- Contract ownership validation using `tx-sender`
+- Fine-grained authorization for critical operations
+- Separation of admin and user operations
+
+### Data Privacy
+- Only data hashes stored on-chain (no personal information)
+- Explicit consent management system
+- Selective disclosure controls
+
+### Verification Security
+- Verification expiration to prevent stale data usage
+- Verification limit mechanisms to prevent abuse
+- Revocation capabilities for compromised verifications
+
+### Error Handling
+- Comprehensive error codes and descriptive messages
+- Proper validation of all inputs and state changes
+- Defensive programming practices
+
+### Audit Trails
+- Timestamps for all critical operations
+- Complete history of consent grants and revocations
+- Tracking of verification activities
+
+## Smart Contract Design
+
+### KYC Registry Contract
+- Manages the global registry of verified users
+- Controls verifier approvals and removals
+- Provides central verification status lookup
+
+### KYC User Contract
+- Stores user identity data hashes (not raw data)
+- Manages explicit user consent for data access
+- Controls which data types can be stored
+
+### KYC Verifier Contract
+- Implements verification processes with security constraints
+- Enforces verification limits and expiration
+- Provides verification status validation
+
 ## Development Setup
 
 ### Prerequisites
@@ -50,35 +94,12 @@ npm install
 clarinet test
 ```
 
-## Smart Contract Design
+## Test Coverage
 
-### KYC Registry Contract
-
-The central contract that manages the verification status of users:
-- Tracks which users have been verified
-- Maintains a list of approved verifiers
-- Records verification timestamps and responsible verifiers
-
-### KYC User Contract
-
-Manages user identity and data:
-- Allows users to control access to their data
-- Implements consent management
-- Provides selective disclosure capabilities
-
-### KYC Verifier Contract
-
-Handles the verification process:
-- Implements verification logic
-- Manages verifier credentials
-- Records verification activities
-
-## Security Considerations
-
-- All contracts implement proper authorization checks
-- Data privacy is maintained through selective disclosure
-- User consent is required for all verification processes
-- Regular security audits are planned
+The system includes comprehensive test suites:
+- Unit tests for individual contract functions
+- Integration tests for cross-contract interactions
+- Negative test cases for security validation
 
 ## License
 
