@@ -1,0 +1,16 @@
+[project]
+name = "kyc-system"
+requirements = []
+costs_version = 2
+
+[contracts.kyc-registry]
+path = "contracts/kyc-registry.clar"
+depends_on = []
+
+[contracts.kyc-user]
+path = "contracts/kyc-user.clar"
+depends_on = ["kyc-registry"]
+
+[contracts.kyc-verifier]
+path = "contracts/kyc-verifier.clar"
+depends_on = ["kyc-registry"]
